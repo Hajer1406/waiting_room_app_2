@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:waiting_room_app/main.dart';
-import 'package:waiting_room_app/queue_provider.dart';
+import 'package:waiting_room_app/providers/queue_provider.dart';
 
 void main() {
   testWidgets('Waiting Room app launches successfully',

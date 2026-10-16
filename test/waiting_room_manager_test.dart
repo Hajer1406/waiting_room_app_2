@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:waiting_room_app/queue_provider.dart';
+import 'package:waiting_room_app/providers/queue_provider.dart';
 
 void main() {
   test('should add a client to the waiting list', () {
@@ -11,7 +11,7 @@ void main() {
 
     // ASSERT: Verify that the result is what you expect.
     expect(manager.clients.length, 1);
-    expect(manager.clients.first, 'John Doe');
+    expect(manager.clients.first.name, 'John Doe');
   });
 
   test('should remove a client from the waiting list', () {
@@ -20,12 +20,12 @@ void main() {
     manager.addClient('John Doe');
     manager.addClient('Jane Doe');
 
-    // ACT
+    // ACT: removeClient supports id or name match
     manager.removeClient('John Doe');
 
     // ASSERT
     expect(manager.clients.length, 1);
-    expect(manager.clients.first, 'Jane Doe');
+    expect(manager.clients.first.name, 'Jane Doe');
   });
 
   test('should remove the first client when nextClient() is called', () {
@@ -39,6 +39,6 @@ void main() {
 
     // ASSERT
     expect(manager.clients.length, 1);
-    expect(manager.clients.first, 'Client B');
+    expect(manager.clients.first.name, 'Client B');
   });
 }
